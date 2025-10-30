@@ -16,6 +16,16 @@
   <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript" language="javascript"></script>
   <script src="js/main.js" type="text/javascript" language="javascript"></script>
 
+
+
+	
+	<style>
+canvas.labels {
+  display: none !important;
+}
+</style>
+
+
   <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
   <link rel="stylesheet" media="screen and (max-height: 770px)" href="css/tablet.css" />
@@ -28,26 +38,18 @@
   </div>
 <div id="mainpanel">
   <div class="col">
-		<div id="maintitle"></div>
+		<div id="maintitle" style="margin-top:-60px;"></div>
     <div id="title"></div>
     <div id="titletext"></div>
     <div class="info cf">
       <dl>
         <dt class="moreinformation"></dt>
-        <dd class="line"><a href="#information" class="line fb">More about this visualisation</a></dd>
+        <dd class="line"><a href="#information" class="line fb">Mai multe despre acest proiect</a></dd>
       </dl>
     </div>
 <div id="legend">
 	<div class="box">
-		<h2>Legend:</h2>
-		<dl>
-		<dt class="node"></dt>
-		<dd></dd>
-		<dt class="edge"></dt>
-		<dd></dd>
-		<dt class="colours"></dt>
-		<dd></dd>		
-		</dl>
+	
 	</div>
 </div> 
     <div class="b1">
@@ -63,8 +65,29 @@
     </form>
     </div>
   </div>
-  <div id="information">
-  </div>
+
+
+
+
+	
+<div id="information" style="display:none;max-width:600px;">
+ <h2 style="margin-bottom:15px;">Despre acest proiect</h2>
+  <p>
+    Această vizualizare a fost realizată în <b>Gephi 0.10.1</b>. Rețeaua prezintă conexiunile de trafic dintre site-urile românești,
+    grupate pe clustere ideologice (mainstream, pseudoștiințe, anti-sistem, naționalist, fundamentalist).
+  </p>
+  <p>
+    Analiza este parte a unui proiect de cercetare privind <i>rezistența la manipulare în spațiul digital</i>.
+  </p>
+  <p>
+    Autor: <b>Marin Gabriel</b> <br/>
+  </p>
+</div>
+
+
+
+
+	
 </div>
 	<div id="zoom">
   		<div class="z" rel="in"></div> <div class="z" rel="out"></div> <div class="z" rel="center"></div>
@@ -108,5 +131,35 @@
   })();
 
 </script>
+
+
+
+
+	<div class="legend" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.9);
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    z-index: 9999;
+">
+  <b>Legendă – Clustere ideologice</b><br>
+  <div><span style="background:#150C45;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Chatbot</div>
+  <div><span style="background:#0911FF;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Om și societate. Oficial</div>
+  <div><span style="background:#00F0E1;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Om și societate. Moderat</div>
+  <div><span style="background:#BF8002;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Om și societate. Naționalist</div>
+  <div><span style="background:#01B32C;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Religios. Oficial</div>
+  <div><span style="background:#2DEB3C;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Religios. Moderat</div>
+  <div><span style="background:#FFAE4D;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Religios. Fundamentalist</div>
+  <div><span style="background:#8897FF;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Știri. Mainstream</div>
+  <div><span style="background:#FF454C;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Știri. Anti-sistem</div>
+  <div><span style="background:#E3A3D9;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Pseudoștiințe. Bioenergopați</div>
+  <div><span style="background:#E303E0;display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:3px;"></span>Pseudoștiințe. Conspirații</div>
+</div>
 </body>
 </html>
