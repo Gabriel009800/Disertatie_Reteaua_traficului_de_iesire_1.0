@@ -17,6 +17,31 @@
   <script src="js/main.js" type="text/javascript" language="javascript"></script>
 
 
+	<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // Așteaptă până e gata instanța Sigma
+    var t = setInterval(function () {
+      if (window.sigInst && sigInst._core && sigInst._core.domElements) {
+        // Ascunde layer-ul cu etichete "normale"
+        if (sigInst._core.domElements.labels)
+          sigInst._core.domElements.labels.style.display = "none";
+
+        // (opțional) Ascunde și etichetele de hover
+        if (sigInst._core.domElements.hovers)
+          sigInst._core.domElements.hovers.style.display = "none";
+
+        // Dezactivează desenarea lor ca fallback
+        if (sigInst._core.plotter) {
+          sigInst._core.plotter.drawLabel = function () {};
+          sigInst._core.plotter.drawHoverNode = function () {};
+        }
+        clearInterval(t);
+      }
+    }, 50);
+  });
+</script>
+
+
 
 	
 	<style>
