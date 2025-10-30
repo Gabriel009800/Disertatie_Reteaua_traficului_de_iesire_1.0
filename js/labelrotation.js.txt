@@ -1,0 +1,30 @@
+// --- ROTIRE LABELURI RADIAL ---
+// Calculează centrul canvasului (aproximativ mijlocul rețelei)
+sigma.utils.pkg('sigma.canvas.labels');
+sigma.canvas.labels.def = function(node, context, settings) {
+  var prefix = settings('prefix') || '',
+      size = node[prefix + 'size'],
+      fontSize = settings('labelSizeRatio') * size,
+      font = settings('font'),
+      label = node.label;
+
+  if (size < settings('labelThreshold')) return;
+
+  var cx = context.canvas.width / 2;
+  var cy = context.canvas.height / 2;
+  var dx = node[prefix + 'x'] - cx;
+  var dy = node[prefix + 'y'] - cy;
+  var angle = Math.atan2(dy, dx); // unghi față de centrul grafului
+
+  // Dacă vrei ca textul din partea stângă să nu fie scris invers:
+  if (dx < 0) angle += Math.PI;
+
+  // Salvăm contextul pentru rotire locală
+  context.save();
+  context.translate(node[prefix + 'x'], node[prefix + 'y']);
+  context.rotate(angle + Math.PI / 2); // +90° = perpendicular pe circumferință
+  context.font = fontSize + 'px ' + font;
+  context.fillStyle = settings('defaultLabelColor');
+  context.fillText(label, size + 6, 0); // crește distanța dacă textul e prea aproape
+  context.restore();
+};
